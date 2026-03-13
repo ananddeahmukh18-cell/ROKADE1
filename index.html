@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rokade's Chandrabhaga Milk Products</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --berry: #7B2D5E;
+    --berry-dark: #4A1A3A;
+    --berry-mid: #9B3A78;
+    --gold: #E8A820;
+    --gold-light: #F5C842;
+    --gold-pale: #FDF0C0;
+    --cream: #FBF5E6;
+    --cream-dark: #F2E8D0;
+    --warm-white: #FEFCF7;
+    --text-dark: #1A0A12;
+    --text-mid: #3D1A2E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── ORNAMENTAL BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(123,45,94,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 90%, rgba(232,168,32,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(251,245,230,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(123,45,94,0.15);
+    box-shadow: 0 2px 24px rgba(123,45,94,0.08);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 52px;
+    width: 52px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--berry-dark);
+    line-height: 1.2;
+  }
+  .nav-brand span {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--berry);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--berry); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--berry);
+    color: var(--gold-light) !important;
+    padding: 8px 22px;
+    border-radius: 2px;
+    transition: background 0.3s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--berry-dark) !important; color: var(--gold-light) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(123,45,94,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-text { position: relative; z-index: 2; padding-right: 40px; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--berry);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: var(--berry-dark);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--berry);
+  }
+
+  .hero-title .gold-accent {
+    display: block;
+    color: var(--gold);
+    font-size: 0.65em;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 480px;
+    font-style: italic;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-bottom: 40px;
+  }
+
+  .stat {
+    text-align: center;
+    position: relative;
+  }
+
+  .stat::after {
+    content: '';
+    position: absolute;
+    top: 10%; right: -18px;
+    height: 80%; width: 1px;
+    background: rgba(123,45,94,0.2);
+  }
+  .stat:last-child::after { display: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--berry);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--berry);
+    opacity: 0.7;
+  }
+
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--berry);
+    color: var(--gold-pale);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(123,45,94,0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--berry-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(123,45,94,0.4);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 13px 36px;
+    border: 1.5px solid var(--berry);
+    color: var(--berry);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--berry);
+    color: var(--gold-pale);
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .hero-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border: 1.5px solid rgba(232,168,32,0.3);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  .hero-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -36px;
+    border: 0.5px solid rgba(232,168,32,0.15);
+    border-radius: 6px;
+    pointer-events: none;
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 20px 60px rgba(74,26,58,0.2);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -24px; left: -24px;
+    width: 110px; height: 110px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(232,168,32,0.4);
+    animation: rotate-badge 20s linear infinite;
+  }
+
+  @keyframes rotate-badge {
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-badge-inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: rotate-badge 20s linear infinite reverse;
+  }
+
+  .hero-badge-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--berry-dark);
+    line-height: 1;
+  }
+
+  .hero-badge-sub {
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--berry-dark);
+    font-weight: 700;
+  }
+
+  /* ─── DIVIDER ─── */
+  .ornamental-divider {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--gold);
+  }
+
+  .ornamental-divider::before, .ornamental-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-strip {
+    background: var(--berry);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-strip::before, .marquee-strip::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee-strip::before { left: 0; background: linear-gradient(90deg, var(--berry), transparent); }
+  .marquee-strip::after { right: 0; background: linear-gradient(-90deg, var(--berry), transparent); }
+
+  .marquee-inner {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 24px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .marquee-item .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ─── SECTION COMMONS ─── */
+  section { position: relative; z-index: 1; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-tag {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--berry-dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--berry); }
+
+  .section-sub {
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: var(--warm-white);
+  }
+
+  .about-text .section-header { text-align: left; }
+
+  .about-body {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid rgba(123,45,94,0.12);
+    border-radius: 4px;
+    background: var(--cream);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .about-feature:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-label {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--berry-dark);
+    letter-spacing: 0.05em;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-stack {
+    position: relative;
+    height: 500px;
+  }
+
+  .about-img-1, .about-img-2 {
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(74,26,58,0.18);
+  }
+
+  .about-img-1 {
+    width: 75%; top: 0; right: 0;
+  }
+  .about-img-1 img { width: 100%; display: block; }
+
+  .about-img-2 {
+    width: 60%; bottom: 0; left: 0;
+    border: 4px solid var(--cream);
+  }
+  .about-img-2 img { width: 100%; display: block; }
+
+  .about-quote {
+    position: absolute;
+    bottom: 60px; right: -20px;
+    background: var(--berry);
+    color: var(--gold-light);
+    padding: 20px 24px;
+    max-width: 220px;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(74,26,58,0.25);
+    z-index: 3;
+  }
+
+  .about-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .about-quote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* ─── PRODUCTS ─── */
+  .products {
+    padding: 100px 60px;
+    background: var(--cream);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(123,45,94,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(74,26,58,0.18);
+    border-color: var(--gold);
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--berry), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+
+  .product-card:hover::before { transform: scaleX(1); }
+
+  .product-img-wrap {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .product-emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  }
+
+  .product-body {
+    padding: 20px 22px 22px;
+  }
+
+  .product-category {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--berry-dark);
+    margin-bottom: 6px;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .product-variants {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .variant-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 12px;
+    background: var(--cream);
+    border-radius: 3px;
+    font-size: 0.88rem;
+  }
+
+  .variant-size {
+    color: var(--text-mid);
+    font-weight: 600;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.8rem;
+  }
+
+  .variant-price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--berry);
+  }
+
+  .product-single-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, rgba(123,45,94,0.06), rgba(232,168,32,0.06));
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+
+  .price-currency {
+    font-size: 0.9rem;
+    color: var(--berry);
+    font-weight: 600;
+  }
+
+  .price-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--berry);
+    line-height: 1;
+  }
+
+  .price-unit {
+    font-size: 0.85rem;
+    color: var(--berry);
+    opacity: 0.7;
+  }
+
+  .product-order-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--berry);
+    color: var(--gold-light);
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+
+  .product-order-btn:hover { background: var(--berry-dark); }
+
+  /* Featured card */
+  .product-card.featured {
+    grid-column: span 1;
+    border-color: rgba(232,168,32,0.4);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: var(--berry-dark);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 2px;
+    z-index: 2;
+  }
+
+  /* ─── WHY US ─── */
+  .why-us {
+    padding: 100px 60px;
+    background: var(--berry-dark);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 70% 80% at 10% 50%, rgba(232,168,32,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(255,255,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .why-us .section-title { color: var(--gold-light); }
+  .why-us .section-sub { color: rgba(251,245,230,0.7); }
+  .why-us .section-tag { color: var(--gold); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    padding: 32px 24px;
+    border: 1px solid rgba(232,168,32,0.2);
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .why-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: rgba(232,168,32,0.06);
+  }
+
+  .why-icon {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .why-desc {
+    font-size: 0.9rem;
+    color: rgba(251,245,230,0.65);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    padding: 100px 60px;
+    background: var(--warm-white);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    padding: 28px 28px 24px;
+    border-radius: 4px;
+    border: 1px solid rgba(123,45,94,0.1);
+    background: var(--cream);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -8px; left: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(74,26,58,0.1);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 14px;
+  }
+
+  .star { color: var(--gold); font-size: 0.9rem; }
+
+  .testimonial-text {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(123,45,94,0.12);
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--berry);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--berry-dark);
+  }
+
+  .author-location {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    opacity: 0.7;
+    margin-top: 1px;
+  }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, var(--berry-dark) 0%, var(--berry) 60%, var(--berry-mid) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8a820' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .cta-banner .section-title { color: var(--gold-light); }
+  .cta-banner .section-sub { color: rgba(253,240,192,0.8); }
+  .cta-banner .section-tag { color: var(--gold); }
+
+  .cta-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold-light);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+  }
+
+  .contact-item-icon { font-size: 1.4rem; }
+
+  .contact-divider {
+    width: 1px; height: 36px;
+    background: rgba(232,168,32,0.3);
+  }
+
+  .cta-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--gold);
+    color: var(--berry-dark);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(232,168,32,0.4);
+  }
+
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,168,32,0.5);
+  }
+
+  .btn-outline-gold {
+    display: inline-block;
+    padding: 13px 40px;
+    border: 1.5px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .btn-outline-gold:hover {
+    background: rgba(232,168,32,0.15);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--berry-dark);
+    color: rgba(251,245,230,0.7);
+    padding: 60px 60px 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand { }
+
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo-wrap img {
+    height: 56px;
+    width: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid rgba(232,168,32,0.4);
+  }
+
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .footer-brand-name span {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(232,168,32,0.6);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .footer-tagline {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: rgba(251,245,230,0.6);
+  }
+
+  .footer-heading {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    color: rgba(251,245,230,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-contact-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .footer-contact-list .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(232,168,32,0.12);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.82rem;
+    color: rgba(251,245,230,0.4);
+  }
+
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-text { animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-visual { animation: fadeUp 0.8s ease 0.5s both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-visual { display: none; }
+    .about { grid-template-columns: 1fr; padding: 60px 24px; }
+    .about-img-stack { display: none; }
+    .products { padding: 60px 24px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .why-us { padding: 60px 24px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials { padding: 60px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .cta-banner { padding: 60px 24px; }
+    footer { padding: 48px 24px 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ─── WHATSAPP FLOAT ─── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 200;
+    background: #25D366;
+    color: white;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse-green 2.5s ease-in-out infinite;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.55);
+  }
+
+  @keyframes pulse-green {
+    0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 30px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
+  }
+
+  /* ─── LOGO ENCODED ─── */
+  /* Logo is embedded as base64 in img src */
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="/mnt/user-data/uploads/chhandrabhaga_dery_logo.png" alt="Chandrabhaga Logo" onerror="this.style.display='none'">
+    <div class="nav-brand">
+      Rokade's Chandrabhaga
+      <span>Milk Products</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why-us">Why Choose Us</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Pure · Traditional · Authentic</p>
+    <h1 class="hero-title">
+      <em>The Purest</em> Dairy
+      <span class="gold-accent">Straight from Nature's Heart</span>
+    </h1>
+    <p class="hero-sub">
+      Rokade's Chandrabhaga Milk Products brings you farm-fresh dairy, crafted with traditional methods passed down through generations — pure, wholesome, and full of love.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Pure Cow</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">★ 5</div>
+        <div class="stat-label">Rated</div>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-secondary">Order Now</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="/mnt/user-data/uploads/PHOTO-2025-12-26-17-18-58_3.jpg" alt="Chandrabhaga Pure Cow Ghee">
+      <div class="hero-badge">
+        <div class="hero-badge-inner">
+          <span class="hero-badge-text">Pure</span>
+          <span class="hero-badge-sub">Guaranteed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="dot"></span> Pure Cow Ghee</span>
+    <span class="marquee-item"><span class="dot"></span> Khava / Mawa</span>
+    <span class="marquee-item"><span class="dot"></span> Malai Pedha</span>
+    <span class="marquee-item"><span class="dot"></span> Special Basundi</span>
+    <span class="marquee-item"><span class="dot"></span> Fresh Paneer</span>
+    <span class="marquee-item"><span class="dot"></span> Dahi (Curd)</span>
+    <span class="marquee-item"><span class="dot"></span> Farm Fresh Dairy</span>
+    <span class="marquee-item"><span class="dot"></span> 100% Natural</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="dot"></span> Pure Cow Ghee</span>
+    <span class="marquee-item"><span class="dot"></span> Khava / Mawa</span>
+    <span class="marquee-item"><span class="dot"></span> Malai Pedha</span>
+    <span class="marquee-item"><span class="dot"></span> Special Basundi</span>
+    <span class="marquee-item"><span class="dot"></span> Fresh Paneer</span>
+    <span class="marquee-item"><span class="dot"></span> Dahi (Curd)</span>
+    <span class="marquee-item"><span class="dot"></span> Farm Fresh Dairy</span>
+    <span class="marquee-item"><span class="dot"></span> 100% Natural</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-header">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">Crafted with <em>Tradition</em> & Care</h2>
+    </div>
+    <p class="about-body">
+      At Rokade's Chandrabhaga Milk Products, we believe that the best dairy comes from the most natural, time-honoured processes. Named after the sacred Chandrabhaga river, our brand is a testament to purity and tradition.
+    </p>
+    <p class="about-body">
+      Every jar of ghee, every block of paneer, every tub of basundi is made with milk sourced from healthy, well-cared-for cows — processed without shortcuts, just the way your grandmother made it.
+    </p>
+    <div class="about-features">
+      <div class="about-feature">
+        <span class="feature-icon">🐄</span>
+        <div>
+          <div class="feature-label">Farm Fresh</div>
+          <div class="feature-desc">Directly sourced from local cows</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <span class="feature-icon">🌿</span>
+        <div>
+          <div class="feature-label">All Natural</div>
+          <div class="feature-desc">No preservatives or additives</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <span class="feature-icon">🏺</span>
+        <div>
+          <div class="feature-label">Traditional Methods</div>
+          <div class="feature-desc">Bilona process for ghee</div>
+        </div>
+      </div>
+      <div class="about-feature">
+        <span class="feature-icon">✅</span>
+        <div>
+          <div class="feature-label">Quality Assured</div>
+          <div class="feature-desc">Freshness in every batch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-visual">
+    <div class="about-img-stack">
+      <div class="about-img-1">
+        <img src="/mnt/user-data/uploads/PHOTO-2025-12-26-17-18-58_2.jpg" alt="Chandrabhaga Ghee Products">
+      </div>
+      <div class="about-img-2">
+        <img src="/mnt/user-data/uploads/PHOTO-2025-12-26-17-18-59.jpg" alt="Chandrabhaga Basundi">
+      </div>
+      <div class="about-quote">
+        <p>"Pure HI Sure HI — Our Promise to You"</p>
+        <cite>— Rokade's Chandrabhaga</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-header">
+    <span class="section-tag">Our Range</span>
+    <h2 class="section-title">Finest <em>Dairy Products</em></h2>
+    <p class="section-sub">From golden ghee to creamy basundi — every product is a celebration of pure, traditional dairy craftsmanship.</p>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- COW GHEE -->
+    <div class="product-card featured">
+      <div class="featured-badge">⭐ Best Seller</div>
+      <div class="product-img-wrap">
+        <img src="/mnt/user-data/uploads/PHOTO-2025-12-26-17-18-58_3.jpg" alt="Pure Cow Ghee">
+      </div>
+      <div class="product-body">
+        <div class="product-category">Pure Dairy</div>
+        <div class="product-name">Pure Cow Ghee</div>
+        <p class="product-desc">Rich, aromatic A2 cow ghee crafted using traditional methods. Golden colour, divine aroma.</p>
+        <div class="product-variants">
+          <div class="variant-row">
+            <span class="variant-size">200 gm</span>
+            <span class="variant-price">₹150</span>
+          </div>
+          <div class="variant-row">
+            <span class="variant-size">500 gm</span>
+            <span class="variant-price">₹350</span>
+          </div>
+          <div class="variant-row">
+            <span class="variant-size">1 Kg</span>
+            <span class="variant-price">₹650</span>
+          </div>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Pure Cow Ghee" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- KHAVA -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <span class="product-emoji">🥛</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">Dairy Sweet Base</div>
+        <div class="product-name">Khava (Mawa)</div>
+        <p class="product-desc">Fresh, dense khava made by slow-reducing whole milk. Perfect for sweets & mithai.</p>
+        <div class="product-single-price">
+          <span class="price-currency">₹</span>
+          <span class="price-value">270</span>
+          <span class="price-unit">/ kg</span>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Khava/Mawa" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- MALAI PEDHA -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <span class="product-emoji">🍮</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">Traditional Sweet</div>
+        <div class="product-name">Malai Pedha</div>
+        <p class="product-desc">Soft, melt-in-mouth peda made from pure milk cream. A timeless Maharashtrian delight.</p>
+        <div class="product-single-price">
+          <span class="price-currency">₹</span>
+          <span class="price-value">100</span>
+          <span class="price-unit">/ 250 gm</span>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Malai Pedha" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- BASUNDI -->
+    <div class="product-card featured">
+      <div class="featured-badge">🌟 Popular</div>
+      <div class="product-img-wrap">
+        <img src="/mnt/user-data/uploads/PHOTO-2025-12-26-17-18-58.jpg" alt="Special Basundi">
+      </div>
+      <div class="product-body">
+        <div class="product-category">Dairy Dessert</div>
+        <div class="product-name">Special Basundi</div>
+        <p class="product-desc">Thick, sweetened reduced milk with saffron & cardamom. Pure indulgence in every spoon.</p>
+        <div class="product-single-price">
+          <span class="price-currency">₹</span>
+          <span class="price-value">90</span>
+          <span class="price-unit">/ 250 gm</span>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Special Basundi" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- PANEER -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <span class="product-emoji">🧀</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">Fresh Dairy</div>
+        <div class="product-name">Fresh Paneer</div>
+        <p class="product-desc">Soft, fresh cottage cheese made daily from pure cow's milk. Firm, flavourful, and wholesome.</p>
+        <div class="product-single-price">
+          <span class="price-currency">₹</span>
+          <span class="price-value">320</span>
+          <span class="price-unit">/ kg</span>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Fresh Paneer" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- DAHI -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <span class="product-emoji">🥣</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">Probiotic Fresh</div>
+        <div class="product-name">Dahi (Curd)</div>
+        <p class="product-desc">Thick, creamy set curd cultured naturally. Mildly tangy, probiotic-rich, and utterly fresh.</p>
+        <div class="product-single-price">
+          <span class="price-currency">₹</span>
+          <span class="price-value">100</span>
+          <span class="price-unit">/ kg</span>
+        </div>
+        <a href="https://wa.me/917620953031?text=Hi! I want to order Dahi/Curd" class="product-order-btn" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us" id="why-us">
+  <div class="section-header">
+    <span class="section-tag">Our Promise</span>
+    <h2 class="section-title">Why Choose <em>Chandrabhaga?</em></h2>
+    <p class="section-sub">We don't just sell dairy — we deliver the richness of tradition, purity, and care in every product.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🐄</span>
+      <div class="why-title">Pure A2 Cow Milk</div>
+      <p class="why-desc">Our dairy comes exclusively from healthy desi cows, ensuring the highest quality A2 milk in every product.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🏺</span>
+      <div class="why-title">Traditional Process</div>
+      <p class="why-desc">We use time-tested, traditional methods — no shortcuts, no compromises. Just the way it's been done for generations.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Zero Additives</div>
+      <p class="why-desc">Absolutely no preservatives, artificial flavours, or chemicals. Just pure, natural dairy goodness in every pack.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🚚</span>
+      <div class="why-title">Fresh Every Day</div>
+      <p class="why-desc">Products are made fresh daily and delivered quickly to ensure you always get the freshest dairy possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-header">
+    <span class="section-tag">Customer Love</span>
+    <h2 class="section-title">What Our <em>Customers Say</em></h2>
+    <p class="section-sub">Thousands of families trust Chandrabhaga for their daily dairy needs. Here's what they have to say.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">The ghee smells just like my grandmother used to make at home. The aroma and taste are absolutely authentic. I've been ordering every month and will never switch!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">P</div>
+        <div>
+          <div class="author-name">Priya Joshi</div>
+          <div class="author-location">Pune, Maharashtra</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">Ordered the basundi for a family function and everyone loved it! The taste is rich and perfectly sweet. Rokade's basundi is truly special — nothing like the market ones!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Suresh Patil</div>
+          <div class="author-location">Baramati, Maharashtra</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">The paneer is so soft and fresh! I use it for daily cooking and it makes such a difference. The dahi is perfect too — thick and naturally tangy. Quality is outstanding!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Anita Shinde</div>
+          <div class="author-location">Solapur, Maharashtra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="contact">
+  <div class="section-header">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Order Fresh, <em>Order Pure</em></h2>
+    <p class="section-sub">Contact us directly on WhatsApp or call us to place your order. Home delivery available!</p>
+  </div>
+
+  <div class="cta-contact">
+    <div class="contact-item">
+      <span class="contact-item-icon">📱</span>
+      <div>
+        <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;margin-bottom:2px;">Call / WhatsApp</div>
+        <div>+91 76209 53031</div>
+      </div>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-item">
+      <span class="contact-item-icon">📍</span>
+      <div>
+        <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;margin-bottom:2px;">Location</div>
+        <div>Baramati, Pune District, Maharashtra</div>
+      </div>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-item">
+      <span class="contact-item-icon">🕐</span>
+      <div>
+        <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;margin-bottom:2px;">Working Hours</div>
+        <div>Mon – Sun · 7 AM to 9 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-btn-group">
+    <a href="https://wa.me/917620953031?text=Hi! I'd like to order from Chandrabhaga Milk Products" class="btn-gold" target="_blank">💬 WhatsApp Order</a>
+    <a href="tel:+917620953031" class="btn-outline-gold">📞 Call Us Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="/mnt/user-data/uploads/chhandrabhaga_dery_logo.png" alt="Chandrabhaga Logo" onerror="this.style.display='none'">
+        <div class="footer-brand-name">
+          Rokade's Chandrabhaga
+          <span>Milk Products</span>
+        </div>
+      </div>
+      <p class="footer-tagline">
+        "Pure HI Sure HI" — Bringing the finest, most authentic dairy products from our farm to your table since years with love, tradition & purity.
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Our Products</a></li>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#contact">Contact & Order</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-heading">Products</div>
+      <ul class="footer-links">
+        <li><a href="#products">Pure Cow Ghee</a></li>
+        <li><a href="#products">Khava / Mawa</a></li>
+        <li><a href="#products">Malai Pedha</a></li>
+        <li><a href="#products">Special Basundi</a></li>
+        <li><a href="#products">Fresh Paneer</a></li>
+        <li><a href="#products">Dahi (Curd)</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-heading">Contact Us</div>
+      <ul class="footer-contact-list">
+        <li>
+          <span class="icon">📱</span>
+          <span>+91 76209 53031</span>
+        </li>
+        <li>
+          <span class="icon">📍</span>
+          <span>Baramati, Pune District,<br>Maharashtra, India</span>
+        </li>
+        <li>
+          <span class="icon">💬</span>
+          <span>WhatsApp orders welcome</span>
+        </li>
+        <li>
+          <span class="icon">🕐</span>
+          <span>Mon – Sun · 7 AM to 9 PM</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2025 Rokade's Chandrabhaga Milk Products. All rights reserved.</div>
+    <div>Made with ❤️ in Maharashtra · <span style="color:rgba(251,245,230,0.4)">Pure HI Sure HI</span></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917620953031?text=Hi! I'd like to order from Chandrabhaga Milk Products" class="whatsapp-float" target="_blank" title="Order on WhatsApp">
+  💬
+</a>
+
+</body>
+</html>
